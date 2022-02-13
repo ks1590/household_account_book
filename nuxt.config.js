@@ -35,6 +35,32 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: "AIzaSyCDGBy7ll9ffRwf5MIvKjoCMdmWD4M5GUQ",
+          authDomain: "household-account-book-e910a.firebaseapp.com",
+          projectId: "household-account-book-e910a",
+          storageBucket: "household-account-book-e910a.appspot.com",
+          messagingSenderId: "239558510610",
+          appId: "1:239558510610:web:3d817e54388deb68b830cb"
+        },
+        services: {
+          auth: {
+            persistence: 'local', // default
+            initialize: {
+              onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
+              onAuthStateChangedAction: 'onAuthStateChangedAction',
+              subscribeManually: false
+            },
+            ssr: false, // default
+          },
+          firestore: true,
+          storage: true
+        }
+      }
+    ]
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
